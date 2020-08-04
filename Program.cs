@@ -10,10 +10,10 @@ namespace TheSynthModStore
 {
     internal class Program
     {
+
         public static string OSC { get; set; }
         public static string GrainDelay { get; set; }
-
-
+        public static string OSCType { get; private set; }
 
         static void Main()
         {
@@ -22,10 +22,12 @@ namespace TheSynthModStore
             //Place an oder for Modular Synth moduals
             Console.Write("Osc? ");
             OSC = Console.ReadLine();
+            Console.Write("Osc Manufacturer? ");
+            OSCType = Console.ReadLine();
             Console.Write("GrainDelay? ");
             GrainDelay = Console.ReadLine();
 
-            string fullText = (OSC + "." + GrainDelay + ".");
+            string fullText = (OSC + "." + OSCType + "." + GrainDelay + ".");
 
             File.AppendAllText(@"Data.txt", fullText + Environment.NewLine);
 
